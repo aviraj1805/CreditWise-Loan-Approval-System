@@ -32,6 +32,7 @@ This project addresses these challenges by developing an automated system that p
 - scikit-learn - Machine learning algorithms and preprocessing
 - NumPy - Numerical computations
 - Jupyter Notebook - Interactive development environment
+- Streamlit - Live interactive web application UI
 
 ## Dataset
 
@@ -54,9 +55,11 @@ The dataset contains 18 features describing applicant demographics, financial st
 
 ```
 loan-approval-system/
-├── loan_approval_modeling.ipynb   # Main project notebook
-├── CreditWise_Loan_System.pdf     # Project specification
-├── loan_approval_data.csv         # Dataset (if included)
+├── app.py                          # Streamlit live prediction app
+├── requirements.txt                # Python dependencies
+├── loan_approval_modeling.ipynb    # Main project notebook
+├── CreditWise_Loan_System.pdf      # Project specification
+├── loan_approval_data.csv          # Dataset
 └── README.md                       # This file
 ```
 
@@ -67,7 +70,7 @@ loan-approval-system/
 Install required dependencies:
 
 ```bash
-pip install pandas scikit-learn numpy jupyter
+pip install -r requirements.txt
 ```
 
 ### Usage
@@ -78,12 +81,22 @@ git clone https://github.com/yourusername/creditwise-loan-approval.git
 cd creditwise-loan-approval
 ```
 
-2. Launch Jupyter Notebook:
+2. Launch the Streamlit app:
+```bash
+streamlit run app.py
+```
+
+3. (Optional) Launch Jupyter Notebook for model experimentation:
 ```bash
 jupyter notebook loan_approval_modeling.ipynb
 ```
 
-3. Run cells sequentially to:
+4. In the Streamlit app:
+   - Enter applicant financial and demographic details from the sidebar
+   - Click **Predict Approval** to get instant recommendation with confidence
+   - Review model quality metrics and top decision drivers
+
+5. In the notebook, run cells sequentially to:
    - Load and explore the dataset
    - Perform data cleaning and preprocessing
    - Train machine learning models
